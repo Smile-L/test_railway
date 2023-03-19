@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  frontend:
+    build: ./frontend
+    environment:
+      - VITE_API_HOST=http://localhost:1002
+    ports:
+      - "1002:1002"
+    depends_on:
+        - backend
+
+  backend:
+    build: ./application
+    ports:
+      - "3002:3002"
+
